@@ -6,8 +6,8 @@ class UsersService {
     return http.get<User>('/users')
   }
 
-  get(id: number) {
-    return http.get<User>(`/users/${id}`)
+  get(id: number, showPosts: boolean = false) {
+    return http.get<User>(`/users/${id}?showPosts=${showPosts}`)
   }
 
   create(data: any) {

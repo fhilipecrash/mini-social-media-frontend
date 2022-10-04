@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import UsersService from '@services/users.service'
+import { Link } from 'react-router-dom'
 
 export class Register extends React.Component<
   {},
@@ -29,7 +30,7 @@ export class Register extends React.Component<
       email: this.state.email,
       password: this.state.password,
     }).then((res) => {
-      console.log(res.data)
+      console.log(res)
     })
   }
 
@@ -48,7 +49,7 @@ export class Register extends React.Component<
   render(): React.ReactNode {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-white">
-        <h1 className="text-black">Sign up</h1>
+        <h1 className="text-black text-2xl font-bold">Sign up</h1>
         <form
           onSubmit={this.handleLogin}
           className="flex flex-col items-center justify-center">
@@ -85,6 +86,11 @@ export class Register extends React.Component<
             Login
           </Button>
         </form>
+        <div className="mt-2">
+          <Link to="/login" className="text-blue-600 hover:underline">
+            Already registered? Login
+          </Link>
+        </div>
       </div>
     )
   }
