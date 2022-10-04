@@ -2,14 +2,17 @@ import React from 'react'
 import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import UsersService from '@services/users.service'
+import { UsersService } from '@services/users.service'
 import { Link } from 'react-router-dom'
 
 export class Register extends React.Component<
   {},
   { name: string; email: string; password: string }
 > {
-  constructor(props: React.ComponentProps<any>) {
+  constructor(
+    props: React.ComponentProps<any>,
+    private usersService: UsersService
+  ) {
     super(props)
     this.state = {
       name: '',
@@ -17,6 +20,7 @@ export class Register extends React.Component<
       password: '',
     }
 
+    this.usersService = new UsersService()
     this.handleLogin = this.handleLogin.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
@@ -25,13 +29,15 @@ export class Register extends React.Component<
 
   handleLogin(event: any): void {
     event.preventDefault()
-    UsersService.create({
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-    }).then((res) => {
-      console.log(res)
-    })
+    this.usersService
+      .create({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+      })
+      .then((res) => {
+        console.log(res)
+      })
   }
 
   handleNameChange(event: React.ChangeEvent<HTMLInputElement>): void {
@@ -83,7 +89,7 @@ export class Register extends React.Component<
             />
           </Box>
           <Button variant="contained" type="submit" className="bg-white">
-            Login
+            Sign up
           </Button>
         </form>
         <div className="mt-2">

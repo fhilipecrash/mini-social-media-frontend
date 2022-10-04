@@ -1,7 +1,7 @@
 import http from '@utils/http-common'
 import type { User } from '@models/User'
 
-class UsersService {
+export class UsersService {
   getAll() {
     return http.get<User>('/users')
   }
@@ -22,5 +22,3 @@ class UsersService {
     return http.delete<User>(`/users/${id}`)
   }
 }
-
-export default new UsersService()
