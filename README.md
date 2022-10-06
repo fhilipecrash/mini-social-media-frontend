@@ -16,7 +16,7 @@ This is a mini social media project that I created to learn more about the Sprin
 
 <p align="center">
 This repo contains the frontend code of the project made with React. <br>
-The backend code can be found <a href="https://github.com/fhilipecrash/mini-social-media-frontend">here</a>.
+The backend code can be found <a href="https://github.com/fhilipecrash/mini-social-media-backend">here</a>.
 </p>
 
 ## Features
