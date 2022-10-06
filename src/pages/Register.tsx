@@ -9,10 +9,7 @@ export class Register extends React.Component<
   {},
   { name: string; email: string; password: string }
 > {
-  constructor(
-    props: React.ComponentProps<any>,
-    private usersService: UsersService
-  ) {
+  constructor(props: React.FC<any>, private usersService: UsersService) {
     super(props)
     this.state = {
       name: '',
@@ -27,7 +24,7 @@ export class Register extends React.Component<
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
   }
 
-  handleLogin(event: any): void {
+  handleLogin(event: React.SyntheticEvent): void {
     event.preventDefault()
     this.usersService
       .create({
