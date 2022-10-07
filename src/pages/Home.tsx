@@ -1,6 +1,7 @@
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { useNavigate } from 'react-router-dom'
 
 function Buttons(): React.ReactElement {
@@ -31,6 +32,9 @@ export class Home extends React.Component<{}, {}> {
   render(): React.ReactNode {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-white">
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
         <Buttons />
       </div>
     )

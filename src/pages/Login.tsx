@@ -1,11 +1,15 @@
 import { Box, TextField, Button } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 export class Login extends React.Component<{}, {}> {
   render(): React.ReactNode {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-white">
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
         <h1 className="text-black text-2xl font-bold">Login</h1>
         <form className="flex flex-col items-center justify-center">
           <Box

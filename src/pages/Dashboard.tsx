@@ -1,10 +1,14 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Link, Outlet } from 'react-router-dom'
 
 export class Dashboard extends React.Component<{}, {}> {
   render(): React.ReactNode {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-white">
+        <Helmet>
+          <title>Dashboard</title>
+        </Helmet>
         <h1 className="text-black text-2xl font-bold">Dashboard</h1>
         <nav className="flex flex-row items-center justify-center">
           <Link to="profile" className="text-blue-600 hover:underline">

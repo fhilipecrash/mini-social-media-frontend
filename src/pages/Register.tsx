@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import { Helmet } from 'react-helmet'
 import { UsersService } from '@services/users.service'
 import { Link } from 'react-router-dom'
 
@@ -52,6 +53,9 @@ export class Register extends React.Component<
   render(): React.ReactNode {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-white">
+        <Helmet>
+          <title>Register</title>
+        </Helmet>
         <h1 className="text-black text-2xl font-bold">Sign up</h1>
         <form
           onSubmit={this.handleLogin}
