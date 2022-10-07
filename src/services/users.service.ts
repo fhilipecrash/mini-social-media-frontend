@@ -1,5 +1,6 @@
 import http from '@utils/http-common'
 import type { User } from '@models/User'
+import type { RegisterForm } from '@models/RegisterForm'
 import { AxiosResponse } from 'axios'
 
 export class UsersService {
@@ -11,7 +12,7 @@ export class UsersService {
     return http.get<User>(`/users/${id}?showPosts=${showPosts}`)
   }
 
-  create(data: any) {
+  create(data: RegisterForm) {
     return http.post('/users/create', data)
   }
 
