@@ -1,10 +1,9 @@
 import { Box, TextField, Button } from '@mui/material'
 import React from 'react'
-import { Link, NavigateFunction } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { AuthService } from '@services/auth.service'
 import { Navigate } from 'react-router-dom'
-import type { User } from '@models/User'
 
 export class Login extends React.Component<
   {},
