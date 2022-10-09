@@ -5,9 +5,8 @@ import { Navigate, useNavigate } from 'react-router-dom'
 
 export function Home(): React.ReactElement {
   const navigate = useNavigate()
-  const user = localStorage.getItem('user')
 
-  if (user) {
+  if (localStorage.getItem('user')) {
     return <Navigate to="/dashboard" replace={true} />
   }
 

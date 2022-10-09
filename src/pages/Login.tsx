@@ -7,10 +7,13 @@ import { Navigate } from 'react-router-dom'
 import type { User } from '@models/User'
 
 export function Login(): React.ReactElement {
-  const authService: AuthService = new AuthService()
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+  const authService = new AuthService()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [currentUser, setCurrentUser] = useState<User>()
+  const user = localStorage.getItem('user')
+    ? localStorage.getItem('user')
+    : currentUser
 
   function handleLogin(event: React.SyntheticEvent): void {
     event.preventDefault()
@@ -22,9 +25,6 @@ export function Login(): React.ReactElement {
       localStorage.setItem('user', JSON.stringify(user))
     })
   }
-  const user = localStorage.getItem('user')
-    ? localStorage.getItem('user')
-    : currentUser
 
   if (user) {
     return <Navigate to="/dashboard" replace={true} />
