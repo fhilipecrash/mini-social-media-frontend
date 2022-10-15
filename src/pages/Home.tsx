@@ -1,9 +1,10 @@
 import { Button, Stack } from '@mui/material'
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 export function Home(): React.ReactElement {
+  document.title = 'Home'
+
   const navigate = useNavigate()
 
   if (localStorage.getItem('user')) {
@@ -12,9 +13,6 @@ export function Home(): React.ReactElement {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-white">
-      <Helmet>
-        <title>Home</title>
-      </Helmet>
       <Stack spacing={2} direction="row">
         <Button
           variant="outlined"

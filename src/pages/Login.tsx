@@ -1,12 +1,13 @@
 import { Box, TextField, Button } from '@mui/material'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
 import { AuthService } from '@services/auth.service'
 import { Navigate } from 'react-router-dom'
 import type { User } from '@models/User'
 
 export function Login(): React.ReactElement {
+  document.title = 'Login'
+
   const authService = new AuthService()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -32,9 +33,6 @@ export function Login(): React.ReactElement {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-white">
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
       <h1 className="text-black text-2xl font-bold">Login</h1>
       <form
         className="flex flex-col items-center justify-center"

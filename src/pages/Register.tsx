@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Button, Box, TextField } from '@mui/material'
-import { Helmet } from 'react-helmet'
 import { UsersService } from '@services/users.service'
 import { Link, Navigate } from 'react-router-dom'
 
 export function Register(): React.ReactElement {
+  document.title = 'Register'
+
   const usersService = new UsersService()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -23,9 +24,6 @@ export function Register(): React.ReactElement {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-white">
-      <Helmet>
-        <title>Register</title>
-      </Helmet>
       <h1 className="text-black text-2xl font-bold">Sign up</h1>
       <form
         onSubmit={handleLogin}
