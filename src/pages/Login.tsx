@@ -47,43 +47,39 @@ export function Login() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-2xl font-bold">Login</h1>
-      <form
-        className="flex flex-col items-center justify-center"
-        onSubmit={handleLogin}>
-        <Box
-          component="div"
-          sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
-          }}
-          className="flex flex-col items-center justify-center">
-          <TextField
-            id="email"
-            label="Email"
-            variant="outlined"
-            type="email"
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <TextField
-            id="password"
-            label="Password"
-            variant="outlined"
-            type="password"
-            onChange={(event) => setPassword(event.target.value)}
-          />
-
-          <FormControlLabel
-            className="text-black text-center"
-            label="Remember me"
-            control={<Checkbox onChange={getCheckboxValue} />}
-          />
-        </Box>
+      <Box
+        component="form"
+        onSubmit={handleLogin}
+        sx={{
+          '& > :not(style)': { m: 1 },
+        }}
+        className="flex flex-col items-center justify-center">
+        <TextField
+          id="email"
+          label="Email"
+          variant="outlined"
+          type="email"
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <TextField
+          id="password"
+          label="Password"
+          variant="outlined"
+          type="password"
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <FormControlLabel
+          className="text-black text-center"
+          label="Remember me"
+          control={<Checkbox onChange={getCheckboxValue} />}
+        />
         <Button
           variant="contained"
           type="submit"
           className="bg-blue-600 text-white">
           Login
         </Button>
-      </form>
+      </Box>
       <div className="mt-2">
         <Link to="/register" className="text-blue-600 hover:underline">
           Don't have an account? Sign in

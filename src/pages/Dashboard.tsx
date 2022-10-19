@@ -5,7 +5,7 @@ export function Dashboard() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-white">
-      <h1 className="text-black text-2xl font-bold">Dashboard</h1>
+      <h1 className="text-2xl font-bold">Dashboard</h1>
       <nav className="flex flex-row items-center justify-center">
         <Link to="profile" className="text-blue-600 hover:underline">
           Profile
