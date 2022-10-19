@@ -1,30 +1,43 @@
-import { Box, TextField, Button } from '@mui/material'
+import {
+  Box,
+  TextField,
+  Button,
+  Checkbox,
+  FormControlLabel,
+} from '@mui/material'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthService } from '@services/auth.service'
 import { Navigate } from 'react-router-dom'
 import type { User } from '@models/User'
 
-export function Login(): React.ReactElement {
+export function Login() {
   document.title = 'Login'
 
   const authService = new AuthService()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [remember, setRemember] = useState(false)
   const [currentUser, setCurrentUser] = useState<User>()
   const user = localStorage.getItem('user')
     ? localStorage.getItem('user')
     : currentUser
 
-  function handleLogin(event: React.SyntheticEvent): void {
+  function handleLogin(event: React.SyntheticEvent) {
     event.preventDefault()
     authService.login(email, password).then((res) => {
       console.log(res.data)
       const { token, user } = res.data
       setCurrentUser(user)
-      localStorage.setItem('token', token)
+      remember
+        ? localStorage.setItem('token', token)
+        : sessionStorage.setItem('token', token)
       localStorage.setItem('user', JSON.stringify(user))
     })
+  }
+
+  function getCheckboxValue(event: React.BaseSyntheticEvent) {
+    setRemember(event.target.checked)
   }
 
   if (user) {
@@ -32,8 +45,8 @@ export function Login(): React.ReactElement {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-white">
-      <h1 className="text-black text-2xl font-bold">Login</h1>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="text-2xl font-bold">Login</h1>
       <form
         className="flex flex-col items-center justify-center"
         onSubmit={handleLogin}>
@@ -57,8 +70,17 @@ export function Login(): React.ReactElement {
             type="password"
             onChange={(event) => setPassword(event.target.value)}
           />
+
+          <FormControlLabel
+            className="text-black text-center"
+            label="Remember me"
+            control={<Checkbox onChange={getCheckboxValue} />}
+          />
         </Box>
-        <Button variant="contained" type="submit" className="bg-white">
+        <Button
+          variant="contained"
+          type="submit"
+          className="bg-blue-600 text-white">
           Login
         </Button>
       </form>

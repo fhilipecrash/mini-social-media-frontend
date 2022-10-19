@@ -3,7 +3,7 @@ import { Button, Box, TextField } from '@mui/material'
 import { UsersService } from '@services/users.service'
 import { Link, Navigate } from 'react-router-dom'
 
-export function Register(): React.ReactElement {
+export function Register() {
   document.title = 'Register'
 
   const usersService = new UsersService()
@@ -24,7 +24,7 @@ export function Register(): React.ReactElement {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-white">
-      <h1 className="text-black text-2xl font-bold">Sign up</h1>
+      <h1 className="text-2xl font-bold">Sign up</h1>
       <form
         onSubmit={handleLogin}
         className="flex flex-col items-center justify-center">

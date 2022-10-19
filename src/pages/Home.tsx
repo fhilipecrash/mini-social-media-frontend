@@ -1,8 +1,7 @@
 import { Button, Stack } from '@mui/material'
-import React from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
-export function Home(): React.ReactElement {
+export function Home() {
   document.title = 'Home'
 
   const navigate = useNavigate()

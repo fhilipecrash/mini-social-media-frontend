@@ -1,7 +1,6 @@
-import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
-export function Dashboard(): React.ReactElement {
+export function Dashboard() {
   document.title = 'Dashboard'
 
   return (
