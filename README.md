@@ -1,7 +1,7 @@
-<h1 align="center"> Mini Social Media Project </h1>
+<h1 align="center"> Social Network Project </h1>
 
 <p align="center">
-This is a mini social media project that I created to learn more about the Spring and React frameworks. It is a simple social media site that allows users to create accounts and make posts. It is a work in progress and I plan to add more features in the future.
+This is a mini social media project that I created to learn more about the FastAPI and React frameworks. It is a simple social media site that allows users to create accounts and make posts. It is a work in progress and I plan to add more features in the future.
 </p>
 
 <h2 align="center"> Technologies </h2>
@@ -16,10 +16,34 @@ This is a mini social media project that I created to learn more about the Sprin
 
 <p align="center">
 This repo contains the frontend code of the project made with React. <br>
-The backend code can be found <a href="https://github.com/fhilipecrash/mini-social-media-backend">here</a>.
+The backend code can be found <a href="https://github.com/fhilipecrash/social-network-api">here</a>.
 </p>
 
 ## Features
 
 - [x] Create accounts
 - [ ] User posts
+
+## Getting Started
+
+### Prerequisites
+
+- NodeJS
+- Yarn
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/fhilipecrash/social-network-frontend
+   ```
+2. Run the project
+   ```sh
+    yarn install # Install dependencies
+    yarn dev # Run the project
+    yarn storybook # Run storybook docs
+   ```
+
+## Usage
+
+Checkout the Storybook documentation at http://localhost:6006

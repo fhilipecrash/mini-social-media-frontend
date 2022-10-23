@@ -11,14 +11,8 @@ export default function Router() {
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="dashboard" element={<Dashboard />}>
-        <Route
-          path="profile"
-          element={<h1 className="text-black">Profile</h1>}
-        />
-        <Route
-          path="settings"
-          element={<h1 className="text-black">Settings</h1>}
-        />
+        <Route path="profile" element={<h1>Profile</h1>} />
+        <Route path="settings" element={<h1>Settings</h1>} />
       </Route>
       <Route path="*" element={<div>404</div>} />
     </Routes>

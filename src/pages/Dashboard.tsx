@@ -4,9 +4,8 @@ export function Dashboard() {
   document.title = 'Dashboard'
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-white">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-      <nav className="flex flex-row items-center justify-center">
+    <div className="h-screen">
+      <nav className="bg-slate-800 h-14">
         <Link to="profile" className="text-blue-600 hover:underline">
           Profile
         </Link>
@@ -14,7 +13,9 @@ export function Dashboard() {
           Settings
         </Link>
       </nav>
-      <Outlet />
+      <div className="flex flex-col items-center justify-center">
+        <Outlet />
+      </div>
     </div>
   )
 }
