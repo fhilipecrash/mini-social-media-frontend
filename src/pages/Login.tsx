@@ -11,6 +11,12 @@ import { AuthService } from '@services/auth'
 import { Navigate } from 'react-router-dom'
 import type { User } from '@models/User'
 
+type LoginForm = {
+  email: string
+  password: string
+  rememberMe: boolean
+}
+
 export function Login() {
   document.title = 'Login'
 
@@ -18,6 +24,11 @@ export function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [remember, setRemember] = useState(false)
+  const [loginForm, setLoginForm] = useState<LoginForm>({
+    email: '',
+    password: '',
+    rememberMe: false,
+  } as LoginForm)
   const [currentUser, setCurrentUser] = useState<User>()
   const user = localStorage.getItem('user')
     ? localStorage.getItem('user')
@@ -25,7 +36,7 @@ export function Login() {
 
   function handleLogin(event: React.SyntheticEvent) {
     event.preventDefault()
-    authService.login(email, password).then((res) => {
+    authService.login(loginForm.email, loginForm.password).then((res) => {
       console.log(res.data)
       const { token, user } = res.data
       setCurrentUser(user)
@@ -34,10 +45,6 @@ export function Login() {
         : sessionStorage.setItem('token', token)
       localStorage.setItem('user', JSON.stringify(user))
     })
-  }
-
-  function getCheckboxValue(event: React.BaseSyntheticEvent) {
-    setRemember(event.target.checked)
   }
 
   if (user) {
@@ -59,19 +66,29 @@ export function Login() {
           label="Email"
           variant="outlined"
           type="email"
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={(event) =>
+            setLoginForm({ ...loginForm, email: event.target.value })
+          }
         />
         <TextField
           id="password"
           label="Password"
           variant="outlined"
           type="password"
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={(event) =>
+            setLoginForm({ ...loginForm, password: event.target.value })
+          }
         />
         <FormControlLabel
           className="text-black text-center"
           label="Remember me"
-          control={<Checkbox onChange={getCheckboxValue} />}
+          control={
+            <Checkbox
+              onChange={(event) =>
+                setLoginForm({ ...loginForm, rememberMe: event.target.checked })
+              }
+            />
+          }
         />
         <Button
           variant="contained"

@@ -3,6 +3,7 @@ import { Button, Box, TextField, Snackbar } from '@mui/material'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
 import { UsersService } from '@services/users'
 import { Link, Navigate } from 'react-router-dom'
+import { UserCreateUpdate } from '@models/UserCreateUpdate'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -19,15 +20,18 @@ export function Register() {
   }
 
   const usersService = new UsersService()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
   const [toast, setToast] = useState({ open: false, type: '' })
+  const [registerForm, setRegisterForm] = useState<UserCreateUpdate>({
+    email: '',
+    password: '',
+    name: '',
+  } as UserCreateUpdate)
 
   function handleRegister(event: React.SyntheticEvent) {
     event.preventDefault()
+    console.log(registerForm)
     usersService
-      .create({ name, email, password })
+      .create(registerForm)
       .then((res) => {
         console.log(res)
         setToast({ open: true, type: 'success' })
@@ -83,20 +87,26 @@ export function Register() {
           id="name"
           label="Name"
           variant="outlined"
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) =>
+            setRegisterForm({ ...registerForm, name: event.target.value })
+          }
         />
         <TextField
           id="email"
           label="Email"
           variant="outlined"
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={(event) =>
+            setRegisterForm({ ...registerForm, email: event.target.value })
+          }
         />
         <TextField
           id="password"
           label="Password"
           variant="outlined"
           type="password"
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={(event) =>
+            setRegisterForm({ ...registerForm, password: event.target.value })
+          }
         />
         <Button variant="contained" type="submit" className="bg-white">
           Sign up
