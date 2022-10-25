@@ -21,15 +21,12 @@ export function Login() {
   document.title = 'Login'
 
   const authService = new AuthService()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [remember, setRemember] = useState(false)
+  const [currentUser, setCurrentUser] = useState<User>()
   const [loginForm, setLoginForm] = useState<LoginForm>({
     email: '',
     password: '',
     rememberMe: false,
   } as LoginForm)
-  const [currentUser, setCurrentUser] = useState<User>()
   const user = localStorage.getItem('user')
     ? localStorage.getItem('user')
     : currentUser
@@ -40,7 +37,7 @@ export function Login() {
       console.log(res.data)
       const { token, user } = res.data
       setCurrentUser(user)
-      remember
+      loginForm.rememberMe
         ? localStorage.setItem('token', token)
         : sessionStorage.setItem('token', token)
       localStorage.setItem('user', JSON.stringify(user))
