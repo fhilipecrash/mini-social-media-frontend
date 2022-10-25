@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Box, TextField, Snackbar } from '@mui/material'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
-import { UsersService } from '@services/users.service'
+import { UsersService } from '@services/users'
 import { Link, Navigate } from 'react-router-dom'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
