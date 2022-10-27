@@ -1,4 +1,10 @@
+import { initialize, mswDecorator } from 'msw-storybook-addon';
+import { themes } from '@storybook/theming';
 import '../src/index.css';
+
+initialize();
+
+export const decorators = [mswDecorator];
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -7,5 +13,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  docs: {
+    theme: themes.dark,
   },
 };
