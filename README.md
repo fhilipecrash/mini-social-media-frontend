@@ -41,7 +41,7 @@ The backend code can be found <a href="https://github.com/fhilipecrash/social-ne
    ```sh
     yarn install # Install dependencies
     yarn dev # Run the project
-    yarn storybook # Run storybook docs
+    yarn docs # Run storybook docs
    ```
 
 ## Usage
