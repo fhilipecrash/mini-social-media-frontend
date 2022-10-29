@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 import { rest } from 'msw'
 import { BrowserRouter } from 'react-router-dom'
 import { Login } from '@pages/Login'
@@ -8,9 +8,16 @@ export default {
   component: Login,
   decorators: [
     (Story) => {
-      return <BrowserRouter>{Story()}</BrowserRouter>
+      return (
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
+      )
     },
   ],
+  argsTypes: {
+    onSubmit: { action: 'onSubmit' },
+  },
   parameters: {
     msw: {
       handlers: [
@@ -29,6 +36,6 @@ export default {
       ],
     },
   },
-} as Meta
+} as ComponentMeta<typeof Login>
 
-export const Default: StoryObj = {}
+export const Default: ComponentStory<typeof Login> = () => <Login />
