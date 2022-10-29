@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { rest } from 'msw'
 import { BrowserRouter } from 'react-router-dom'
 import { Register } from '@pages/Register'

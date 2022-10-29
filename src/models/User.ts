@@ -1,4 +1,4 @@
-import type { Post } from '@models/Post'
+import { Post } from '@models/Post'
 
 export type User = {
   id: number

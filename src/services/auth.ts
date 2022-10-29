@@ -1,5 +1,5 @@
 import http from '@utils/http-common'
-import type { Auth } from '@models/Auth'
+import { Auth } from '@models/Auth'
 import { AxiosResponse } from 'axios'
 
 export class AuthService {
