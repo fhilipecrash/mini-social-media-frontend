@@ -7,9 +7,9 @@ import {
 } from '@mui/material'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthService } from '@services/auth'
+import { AuthService } from '@/services/auth'
 import { Navigate } from 'react-router-dom'
-import { User } from '@models/User'
+import { User } from '@/models/User'
 
 type LoginForm = {
   email: string

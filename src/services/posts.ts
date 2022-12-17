@@ -1,6 +1,6 @@
-import http from '@utils/http-common'
-import { Post } from '@models/Post'
-import { PostCreateUpdate } from '@models/PostCreateUpdate'
+import http from '@/utils/http-common'
+import { Post } from '@/models/Post'
+import { PostCreateUpdate } from '@/models/PostCreateUpdate'
 import { AxiosResponse } from 'axios'
 
 export class PostsServices {

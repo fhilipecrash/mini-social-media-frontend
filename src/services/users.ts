@@ -1,6 +1,6 @@
-import http from '@utils/http-common'
-import { User } from '@models/User'
-import { UserCreateUpdate } from '@models/UserCreateUpdate'
+import http from '@/utils/http-common'
+import type { User } from '@/models/User'
+import { UserCreateUpdate } from '@/models/UserCreateUpdate'
 import { AxiosResponse } from 'axios'
 
 export class UsersService {

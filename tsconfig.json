@@ -21,21 +21,9 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@pages/*": [
-        "./pages/*"
-      ],
-      "@services/*": [
-        "./services/*"
-      ],
-      "@models/*": [
-        "./models/*"
-      ],
-      "@utils/*": [
-        "./utils/*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
+      "@/*": [
+        "./*"
+      ]
     }
   },
   "include": [
