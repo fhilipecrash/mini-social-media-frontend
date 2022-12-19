@@ -3,7 +3,7 @@ import type { User } from '@/models/User'
 import { UserCreateUpdate } from '@/models/UserCreateUpdate'
 import { AxiosResponse } from 'axios'
 
-export class UsersService {
+class UsersService {
   getAll(): Promise<AxiosResponse<User[]>> {
     return http.get<User[]>('/users')
   }
@@ -28,3 +28,5 @@ export class UsersService {
     return http.get(`/users/${userId}/posts`)
   }
 }
+
+export const usersService = new UsersService()

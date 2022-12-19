@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Box, TextField, Snackbar } from '@mui/material'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
-import { UsersService } from '@/services/users'
+import { usersService } from '@/services/users'
 import { Link, Navigate } from 'react-router-dom'
 import { UserCreateUpdate } from '@/models/UserCreateUpdate'
 
@@ -19,7 +19,6 @@ export function Register() {
     return <Navigate to="/dashboard" replace={true} />
   }
 
-  const usersService = new UsersService()
   const [toast, setToast] = useState({ open: false, type: '' })
   const [registerForm, setRegisterForm] = useState<UserCreateUpdate>({
     email: '',

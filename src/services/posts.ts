@@ -3,7 +3,7 @@ import { Post } from '@/models/Post'
 import { PostCreateUpdate } from '@/models/PostCreateUpdate'
 import { AxiosResponse } from 'axios'
 
-export class PostsServices {
+class PostsServices {
   getAll(): Promise<AxiosResponse<Post[]>> {
     return http.get<Post[]>('/posts')
   }
@@ -24,3 +24,5 @@ export class PostsServices {
     return http.delete(`/posts/${postId}`)
   }
 }
+
+export const postsService = new PostsServices()

@@ -7,7 +7,7 @@ import {
 } from '@mui/material'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthService } from '@/services/auth'
+import { authService } from '@/services/auth'
 import { Navigate } from 'react-router-dom'
 import { User } from '@/models/User'
 
@@ -20,7 +20,6 @@ type LoginForm = {
 export function Login() {
   document.title = 'Login'
 
-  const authService = new AuthService()
   const [currentUser, setCurrentUser] = useState<User>()
   const [loginForm, setLoginForm] = useState<LoginForm>({
     email: '',
