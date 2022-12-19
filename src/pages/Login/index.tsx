@@ -4,47 +4,47 @@ import {
   Button,
   Checkbox,
   FormControlLabel,
-} from '@mui/material'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { authService } from '@/services/auth'
-import { Navigate } from 'react-router-dom'
-import { User } from '@/models/User'
+} from '@mui/material';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { authService } from '@/services/auth';
+import { Navigate } from 'react-router-dom';
+import { User } from '@/models/User';
 
 type LoginForm = {
-  email: string
-  password: string
-  rememberMe: boolean
-}
+  email: string;
+  password: string;
+  rememberMe: boolean;
+};
 
 export function Login() {
-  document.title = 'Login'
+  document.title = 'Login';
 
-  const [currentUser, setCurrentUser] = useState<User>()
+  const [currentUser, setCurrentUser] = useState<User>();
   const [loginForm, setLoginForm] = useState<LoginForm>({
     email: '',
     password: '',
     rememberMe: false,
-  } as LoginForm)
+  } as LoginForm);
   const user = localStorage.getItem('user')
     ? localStorage.getItem('user')
-    : currentUser
+    : currentUser;
 
   function handleLogin(event: React.SyntheticEvent) {
-    event.preventDefault()
+    event.preventDefault();
     authService.login(loginForm.email, loginForm.password).then((res) => {
-      console.log(res.data)
-      const { token, user } = res.data
-      setCurrentUser(user)
+      console.log(res.data);
+      const { token, user } = res.data;
+      setCurrentUser(user);
       loginForm.rememberMe
         ? localStorage.setItem('token', token)
-        : sessionStorage.setItem('token', token)
-      localStorage.setItem('user', JSON.stringify(user))
-    })
+        : sessionStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+    });
   }
 
   if (user) {
-    return <Navigate to="/dashboard" replace={true} />
+    return <Navigate to="/dashboard" replace={true} />;
   }
 
   return (
@@ -99,5 +99,5 @@ export function Login() {
         </Link>
       </div>
     </div>
-  )
+  );
 }

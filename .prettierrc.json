@@ -11,7 +11,7 @@
       "files": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx", "**/*.json"],
       "options": {
         "tabWidth": 2,
-        "semi": false
+        "semi": true
       }
     }
   ]
